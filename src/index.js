@@ -1,7 +1,22 @@
+const config1 = [['(', ')']];
+const config2 = [['(', ')'], ['[', ']']];
+const config3 = [['(', ')'], ['[', ']'], ['{', '}']];
+const config4 = [['|', '|']];
+const config5 = [['(', ')'], ['|', '|']];
+const config6 = [['1', '2'], ['3', '4'], ['5', '6'], ['7', '7'], ['8', '8']];
+const config7 = [['(', ')'], ['[', ']'], ['{', '}'], ['|', '|']];
+
 module.exports = function check(str, bracketsConfig) {
   let result = false;
   str = str.split('');
- 
+ if (str.length%2 !== 0){
+      return result = false;
+    }else if (str[0]== ')' || str[0]== '}' || str[0]== ']' || str[0]== '2' || str[0]== '4' || str[0]== '6' || str[0]== '8'){
+      return result = false;
+    }else if (str[str.length-1]== '(' || str[str.length-1]== '{' || str[str.length-1]== '[' || str[str.length-1]== '1' || str[str.length-1]== '3' || str[str.length-1]== '5' || str[str.length-1]== '7'){
+      return result = false;
+    }
+
     if (bracketsConfig.length == 1){
 
     (function func(){
@@ -77,7 +92,6 @@ module.exports = function check(str, bracketsConfig) {
         }
       }
     })()
-
 
   }
 
